@@ -1,4 +1,8 @@
-.App {}
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .App-logo {
   height: 40vmin;
@@ -26,7 +30,10 @@
   text-decoration: none;
 }
 
-.App-body {}
+.App-body {
+  flex: 1;
+  background-color: #131516;
+}
 
 .App-link {
   color: #61dafb;
@@ -43,4 +50,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.full-height {
+  height: 100vh;
 }

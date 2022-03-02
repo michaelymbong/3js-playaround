@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Link, Outlet, Routes, Route } from "react-router-dom";
-import { Boxes, Home } from "./pages";
+import { Boxes, Home, HorizontalTiles } from "./pages";
 
 function Layout() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="boxes" element={<Boxes />} />
+          <Route path="horizontal-tiles" element={<HorizontalTiles />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

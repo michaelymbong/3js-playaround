@@ -7,6 +7,9 @@ const Home = () => {
         <li>
           <Link to="boxes">Boxes</Link>
         </li>
+        <li>
+          <Link to="horizontal-tiles">Horizontal Tiles</Link>
+        </li>
       </ul>
     </div>
   );

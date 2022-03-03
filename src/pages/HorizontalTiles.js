@@ -94,7 +94,7 @@ function Items({ w = 0.7, gap = 0.15, tilesState, setState }) {
       pages={(width - xW + ALL_IMAGE_URLS.length * xW) / width}
     >
       <Scroll>
-        {ALL_IMAGE_URLS.map((u) => `/images/${u}`).map((url, i) => (
+        {ALL_IMAGE_URLS.map((url, i) => (
           <Item
             key={i}
             index={i}

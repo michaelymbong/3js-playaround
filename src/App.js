@@ -5,6 +5,7 @@ import ErrorBoundary from "./ErrorBoundary";
 const Boxes = lazy(() => import("./pages/Boxes"));
 const Home = lazy(() => import("./pages/Home"));
 const HorizontalTiles = lazy(() => import("./pages/HorizontalTiles"));
+const SimpleModel = lazy(() => import("./pages/SimpleModel"));
 const VerticalTiles = lazy(() => import("./pages/VerticalTiles"));
 
 function Layout() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="boxes" element={<Boxes />} />
           <Route path="horizontal-tiles" element={<HorizontalTiles />} />
           <Route path="vertical-tiles" element={<VerticalTiles />} />
+          <Route path="simple-model" element={<SimpleModel />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

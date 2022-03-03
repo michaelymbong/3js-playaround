@@ -13,7 +13,16 @@ const Home = () => {
         <li>
           <Link to="vertical-tiles">Vertical Tiles</Link>
         </li>
+        <li>
+          <Link to="simple-model">Simple Model Rendering</Link>
+        </li>
       </ul>
+      <h3 style={{ margin: "1.5rem" }}>
+        Using{" "}
+        <a href="https://docs.pmnd.rs/react-three-fiber/getting-started/introduction">
+          React-three-fiber
+        </a>
+      </h3>
     </div>
   );
 };

@@ -1,6 +1,10 @@
 import "./App.css";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Link, Outlet, Routes, Route } from "react-router-dom";
-import { Boxes, Home, HorizontalTiles } from "./pages";
+import ErrorBoundary from "./ErrorBoundary";
+const Boxes = lazy(() => import("./pages/Boxes"));
+const Home = lazy(() => import("./pages/Home"));
+const HorizontalTiles = lazy(() => import("./pages/HorizontalTiles"));
 
 function Layout() {
   return (
@@ -10,7 +14,11 @@ function Layout() {
         <a href="https://michaelymbong.art">my.art</a>
       </header>
       <div className="App-body">
-        <Outlet />
+        <ErrorBoundary>
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </div>
   );

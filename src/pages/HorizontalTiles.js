@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { Suspense, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Image, ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { ALL_IMAGE_URLS } from "../imageUtil";
@@ -123,9 +123,7 @@ function HorizontalTiles() {
       onPointerMissed={() => setState({ ...tilesState, clicked: null })}
       className="full-height"
     >
-      <Suspense fallback={null}>
-        <Items tilesState={tilesState} setState={setState} />
-      </Suspense>
+      <Items tilesState={tilesState} setState={setState} />
     </Canvas>
   );
 }

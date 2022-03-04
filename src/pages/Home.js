@@ -14,7 +14,7 @@ const Home = () => {
           <Link to="vertical-tiles">Vertical Tiles</Link>
         </li>
         <li>
-          <Link to="simple-model">Simple Model Rendering</Link>
+          <Link to="simple-model">(WIP) Simple Model Rendering</Link>
         </li>
       </ul>
       <h3 style={{ margin: "1.5rem" }}>
@@ -22,6 +22,8 @@ const Home = () => {
         <a href="https://docs.pmnd.rs/react-three-fiber/getting-started/introduction">
           React-three-fiber
         </a>
+        {" & "}
+        <a href="https://threejs.org/">three.js</a>
       </h3>
     </div>
   );

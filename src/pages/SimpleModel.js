@@ -5,7 +5,7 @@ import {
   Stage,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import F1CarModel from "../models/F1Car";
+import F1CarModel from "../models/F1CarGeneric2022";
 
 export default function SimpleModel() {
   return (
@@ -28,7 +28,7 @@ export default function SimpleModel() {
           <F1CarModel />
         </Stage>
         <mesh rotation={[-Math.PI / 2, 0, 0]}>
-          <planeGeometry args={[700, 700]} />
+          <planeGeometry args={[10, 10]} />
           <MeshReflectorMaterial
             blur={[300, 100]}
             resolution={2048}
@@ -38,7 +38,7 @@ export default function SimpleModel() {
             depthScale={1.2}
             minDepthThreshold={0.4}
             maxDepthThreshold={1.4}
-            color="#101010"
+            color="#FFFFFF"
             metalness={0.5}
           />
         </mesh>

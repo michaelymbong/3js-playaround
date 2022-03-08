@@ -3,6 +3,7 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter, Link, Outlet, Routes, Route } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary";
 const Boxes = lazy(() => import("./pages/Boxes"));
+const SimpleLighting = lazy(() => import("./pages/SimpleLighting"));
 const Home = lazy(() => import("./pages/Home"));
 const HorizontalTiles = lazy(() => import("./pages/HorizontalTiles"));
 const SimpleModel = lazy(() => import("./pages/SimpleModel"));
@@ -36,6 +37,7 @@ function App() {
           <Route path="horizontal-tiles" element={<HorizontalTiles />} />
           <Route path="vertical-tiles" element={<VerticalTiles />} />
           <Route path="simple-model" element={<SimpleModel />} />
+          <Route path="simple-lighting" element={<SimpleLighting />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

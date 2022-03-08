@@ -61,3 +61,36 @@
   width: 100%;
   text-align: center;
 }
+
+
+/* Dynamic Materials */
+.shoe-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  outline: none;
+  width: calc(100vw - 2vw);
+  height: calc(100vh - 8vh);
+}
+
+.picker {
+  position: absolute !important;
+  top: 74px;
+  left: 70px;
+  width: 90px !important;
+  height: 90px !important;
+}
+
+.picker-label {
+  position: absolute;
+  top: 43px;
+  left: 140px;
+  padding: 0;
+  margin: 40px;
+  font-size: 5em;
+  font-weight: 600;
+  line-height: 0.7em;
+  letter-spacing: -6px;
+  color: #272730;
+}

@@ -19,6 +19,9 @@ const Home = () => {
         <li>
           <Link to="simple-lighting">Simple Lighting</Link>
         </li>
+        <li>
+          <Link to="dynamic-materials">Dynamic Materials</Link>
+        </li>
       </ul>
       <h3 style={{ margin: "1.5rem" }}>
         Using{" "}

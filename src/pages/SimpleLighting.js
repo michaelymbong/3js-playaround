@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import GeishaMaskModel from "../models/GeishaMask";
 
-export default function DynamicMaterials() {
+export default function SimpleLighting() {
   return (
     <Canvas>
       <ambientLight intensity={1} />

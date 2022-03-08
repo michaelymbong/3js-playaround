@@ -4,6 +4,5 @@ import { useGLTF } from "@react-three/drei";
 
 export default function GeishaMask(props) {
   const model = useGLTF("/models/gits_geisha_mask/model.glb");
-  console.log("model", model);
   return <primitive object={model.scene} {...props} />;
 }

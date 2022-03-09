@@ -26,12 +26,12 @@ echo "Building..."
 npm run  build
 
 # Copy build files if build was a success
-if [ -f "index.js" ];
+if [ -f "build/index.html" ];
 then
 rm -rf /var/www/html/3js-playaround.michaelymbong.art
 cp -r build /var/www/html/3js-playaround.michaelymbong.art
 else
-echo "FAIL: index.js does not exist"
+echo "FAIL: index.html does not exist"
 fi
 
 echo "DONE!"

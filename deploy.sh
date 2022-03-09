@@ -25,8 +25,13 @@ npm install
 echo "Building..."
 npm run  build
 
-# Copy build files to 
+# Copy build files if build was a success
+if [ -f "index.js" ];
+then
 rm -rf /var/www/html/3js-playaround.michaelymbong.art
 cp -r build /var/www/html/3js-playaround.michaelymbong.art
+else
+echo "FAIL: index.js does not exist"
+fi
 
 echo "DONE!"

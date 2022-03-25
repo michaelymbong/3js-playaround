@@ -1,12 +1,19 @@
 import * as THREE from "three";
 import { useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useThree, Vector3 } from "@react-three/fiber";
 import { useIntersect, Image, ScrollControls, Scroll } from "@react-three/drei";
 import { ALL_IMAGE_URLS } from "../imageUtil";
+import { Mesh } from "three";
 
-function Item({ url, scale, ...props }) {
+type ItemProps = {
+  url: string;
+  scale: Vector3;
+  position: Vector3;
+};
+
+function Item({ url, scale, position }: ItemProps) {
   const visible = useRef(false);
-  const ref = useIntersect((isVisible) => (visible.current = isVisible));
+  const ref = useIntersect<Mesh>((isVisible) => (visible.current = isVisible));
   const { height } = useThree((state) => state.viewport);
   useFrame((state, delta) => {
     ref.current.position.y = THREE.MathUtils.damp(
@@ -15,7 +22,9 @@ function Item({ url, scale, ...props }) {
       4,
       delta
     );
-    ref.current.material.zoom = THREE.MathUtils.damp(
+    // @ts-ignore
+    THREE.MathUtils.damp(
+      // @ts-ignore
       ref.current.material.zoom,
       visible.current ? 1 : 1.5,
       4,
@@ -23,7 +32,8 @@ function Item({ url, scale, ...props }) {
     );
   });
   return (
-    <group {...props}>
+    <group position={position}>
+      {/* @ts-ignore */}
       <Image ref={ref} scale={scale} url={url} />
     </group>
   );
@@ -92,6 +102,7 @@ function VerticalTiles() {
     >
       <ScrollControls damping={6} pages={5}>
         <Items />
+        {/* @ts-ignore */}
         <Scroll html style={{ width: "100%" }}>
           <h1
             style={{

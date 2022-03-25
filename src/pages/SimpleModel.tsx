@@ -25,7 +25,7 @@ export default function SimpleModel() {
           environment={null}
           preset="rembrandt"
         >
-          <F1CarModel />
+          <F1CarModel object={undefined} />
         </Stage>
         <mesh rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[10, 10]} />
@@ -40,6 +40,7 @@ export default function SimpleModel() {
             maxDepthThreshold={1.4}
             color="#FFFFFF"
             metalness={0.5}
+            mirror={0}
           />
         </mesh>
       </PresentationControls>

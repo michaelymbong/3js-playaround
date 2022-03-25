@@ -1,14 +1,20 @@
 import { useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, ObjectMap } from "@react-three/fiber";
 import { Environment, OrbitControls, useGLTF } from "@react-three/drei";
 import { HexColorPicker } from "react-colorful";
 
-function Picker({ state, setState }) {
+type PickerProps = {
+  state: DynamicMaterialsState;
+  setState: Function;
+};
+
+function Picker({ state, setState }: PickerProps) {
   const { items, current } = state;
   return (
     <div style={{ display: current ? "block" : "none" }}>
       <HexColorPicker
         className="picker"
+        // @ts-ignore
         color={items[current]}
         onChange={(color) => {
           setState({
@@ -25,10 +31,15 @@ function Picker({ state, setState }) {
   );
 }
 
-function Shoe({ state, setState }) {
+type ShoeProps = {
+  state: DynamicMaterialsState;
+  setState: Function;
+};
+
+function Shoe({ state, setState }: ShoeProps) {
   const { items } = state;
   const ref = useRef();
-  const { nodes, materials } = useGLTF("/models/shoe.glb");
+  const { nodes, materials }: ObjectMap = useGLTF("/models/shoe.glb");
 
   return (
     <group
@@ -37,14 +48,16 @@ function Shoe({ state, setState }) {
       onPointerMissed={() =>
         setState({
           ...state,
-          current: null,
+          current: "",
         })
       }
       onClick={(e) => {
         e.stopPropagation();
+        // @ts-ignore
         console.log("click", e.object.material.name);
         setState({
           ...state,
+          // @ts-ignore
           current: e.object.material.name,
         });
       }}
@@ -52,6 +65,7 @@ function Shoe({ state, setState }) {
       <mesh
         receiveShadow
         castShadow
+        // @ts-ignore
         geometry={nodes.shoe.geometry}
         material={materials.laces}
         material-color={items.laces}
@@ -59,6 +73,7 @@ function Shoe({ state, setState }) {
       <mesh
         receiveShadow
         castShadow
+        // @ts-ignore
         geometry={nodes.shoe_1.geometry}
         material={materials.mesh}
         material-color={items.mesh}
@@ -66,6 +81,7 @@ function Shoe({ state, setState }) {
       <mesh
         receiveShadow
         castShadow
+        // @ts-ignore
         geometry={nodes.shoe_2.geometry}
         material={materials.caps}
         material-color={items.caps}
@@ -73,6 +89,7 @@ function Shoe({ state, setState }) {
       <mesh
         receiveShadow
         castShadow
+        // @ts-ignore
         geometry={nodes.shoe_3.geometry}
         material={materials.inner}
         material-color={items.inner}
@@ -80,6 +97,7 @@ function Shoe({ state, setState }) {
       <mesh
         receiveShadow
         castShadow
+        // @ts-ignore
         geometry={nodes.shoe_4.geometry}
         material={materials.sole}
         material-color={items.sole}
@@ -87,6 +105,7 @@ function Shoe({ state, setState }) {
       <mesh
         receiveShadow
         castShadow
+        // @ts-ignore
         geometry={nodes.shoe_5.geometry}
         material={materials.stripes}
         material-color={items.stripes}
@@ -94,6 +113,7 @@ function Shoe({ state, setState }) {
       <mesh
         receiveShadow
         castShadow
+        // @ts-ignore
         geometry={nodes.shoe_6.geometry}
         material={materials.band}
         material-color={items.band}
@@ -101,6 +121,7 @@ function Shoe({ state, setState }) {
       <mesh
         receiveShadow
         castShadow
+        // @ts-ignore
         geometry={nodes.shoe_7.geometry}
         material={materials.patch}
         material-color={items.patch}
@@ -109,9 +130,23 @@ function Shoe({ state, setState }) {
   );
 }
 
+type DynamicMaterialsState = {
+  current: string;
+  items: {
+    laces: string;
+    mesh: string;
+    caps: string;
+    inner: string;
+    sole: string;
+    stripes: string;
+    band: string;
+    patch: string;
+  };
+};
+
 export default function DynamicMaterials() {
-  const [state, setState] = useState({
-    current: null,
+  const [state, setState] = useState<DynamicMaterialsState>({
+    current: "",
     items: {
       laces: "#ffffff",
       mesh: "#ffffff",

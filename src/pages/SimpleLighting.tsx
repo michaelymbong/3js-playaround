@@ -13,7 +13,7 @@ export default function SimpleLighting() {
         position={[10, 15, 10]}
         castShadow
       />
-      <GeishaMaskModel scale={1.6} />
+      <GeishaMaskModel scale={1.6} object={undefined} />
       <OrbitControls
         minPolarAngle={Math.PI / 2}
         maxPolarAngle={Math.PI / 2}

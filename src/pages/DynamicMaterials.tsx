@@ -5,7 +5,7 @@ import { HexColorPicker } from "react-colorful";
 
 type PickerProps = {
   state: DynamicMaterialsState;
-  setState: Function;
+  setState: React.Dispatch<React.SetStateAction<DynamicMaterialsState>>;
 };
 
 function Picker({ state, setState }: PickerProps) {
@@ -33,7 +33,7 @@ function Picker({ state, setState }: PickerProps) {
 
 type ShoeProps = {
   state: DynamicMaterialsState;
-  setState: Function;
+  setState: React.Dispatch<React.SetStateAction<DynamicMaterialsState>>;
 };
 
 function Shoe({ state, setState }: ShoeProps) {

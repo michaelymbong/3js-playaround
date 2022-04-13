@@ -1,15 +1,15 @@
-import { useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { Canvas, MeshProps, useFrame } from "@react-three/fiber";
-import { Mesh } from "three";
 
 function Box(props: MeshProps) {
   // This reference gives us direct access to the THREE.Mesh object
-  const ref = useRef<Mesh>();
+  const ref = useRef<ReactNode>();
   // Hold state for hovered and clicked events
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame((state, delta) => {
+    // @ts-ignore
     if (ref.current) ref.current.rotation.x += 0.01;
   });
   // Return the view, these are regular Threejs elements expressed in JSX
